@@ -12,8 +12,14 @@ gem 'rubocop'
 gem 'sqlite3'
 
 group :development, :test do
+  gem 'binding_of_caller'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry'
   gem 'rspec-rails', '~> 3.8'
+end
+
+group :test do
+  gem 'shoulda-matchers', '4.0.0.rc1'
 end
 
 group :development do

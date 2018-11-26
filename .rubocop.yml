@@ -5,3 +5,4 @@ AllCops:
     - 'spec/rails_helper.rb'
     - 'config/**/*'
     - 'bin/**/*'
+    - 'db/schema.rb'
