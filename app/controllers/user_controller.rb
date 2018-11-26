@@ -2,7 +2,7 @@
 
 # no-doc
 class UserController < ApplicationController
-  # POST /sign_up
+  # POST /user/sign_up
   def sign_up
     user = User.new user_params
 
@@ -10,6 +10,20 @@ class UserController < ApplicationController
       render json: user
     else
       render json: user.errors, status: :unprocessable_entity
+    end
+  end
+
+  # GET /user/sign_in
+  def sign_in
+    user = User.find_by(
+      user_name: params[:user_name],
+      encrypted_password: params[:encrypted_password]
+    )
+
+    if user
+      render json: { user_token: user.auth_token }
+    else
+      render json: 'User does not exist', status: :not_found
     end
   end
 

@@ -14,6 +14,7 @@ gem 'sqlite3'
 group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-rails', '~> 3.8'
 end
