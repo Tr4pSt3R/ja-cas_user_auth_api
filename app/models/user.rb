@@ -2,7 +2,9 @@
 
 #  no-doc
 class User < ApplicationRecord
-  has_secure_token :auth_token
+  has_one :token
 
-  validates :user_name, :email_address, :encrypted_password, presence: true
+  validates :user_name,
+            :email_address,
+            :encrypted_password, presence: true
 end

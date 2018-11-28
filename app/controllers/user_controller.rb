@@ -21,7 +21,8 @@ class UserController < ApplicationController
     )
 
     if user
-      render json: { user_token: user.auth_token }
+      user.create_token
+      render json: { user_token: user.token.auth_token }
     else
       render json: 'User does not exist', status: :not_found
     end

@@ -40,4 +40,11 @@ RSpec.describe 'user', type: :request do
       end
     end
   end
+
+  describe 'token validity period' do
+    context 'when token is freshly generated' do
+      it 'should be valid' do
+      end
+    end
+  end
 end
