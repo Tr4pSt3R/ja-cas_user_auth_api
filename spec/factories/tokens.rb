@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :token do
-    auth_token { "MyString" }
+    user
   end
 end

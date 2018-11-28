@@ -24,4 +24,29 @@ RSpec.describe Token, type: :model do
       end
     end
   end
+
+  describe 'token refresh' do
+    #let!(:user) { FactoryBot.create(:user, :authenticated) }
+
+    #subject!(:auth_token) { user.auth_token }
+
+    context 'when token is expired' do
+      before do
+        expect_any_instance_of(Token).to receive(
+          :regenerate_auth_token
+        ).and_return(
+          true
+        )
+      end
+
+      it 'regenerates a fresh token' do
+        user = FactoryBot.create(:user, :authenticated)
+        expired_token = user.token.auth_token
+
+        travel_to(70.minutes.from_now) do
+          user.secret_token
+        end
+      end
+    end
+  end
 end
