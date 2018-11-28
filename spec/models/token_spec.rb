@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Token, type: :model do
@@ -37,7 +39,6 @@ RSpec.describe Token, type: :model do
 
       it 'regenerates a fresh token' do
         user = FactoryBot.create(:user, :authenticated)
-        expired_token = user.token.auth_token
 
         travel_to(70.minutes.from_now) do
           user.secret_token

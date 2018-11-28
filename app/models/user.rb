@@ -10,6 +10,10 @@ class User < ApplicationRecord
             :email_address,
             :encrypted_password, presence: true
 
+  scope :retrieve, lambda { |auth_token|
+    joins(:token).where(tokens: { auth_token: auth_token })
+  }
+
   def secret_token
     token.regenerate_auth_token if token.expired?
 

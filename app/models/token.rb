@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# no-op
 class Token < ApplicationRecord
   has_secure_token :auth_token
   belongs_to :user

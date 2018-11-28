@@ -31,8 +31,7 @@ class UserController < ApplicationController
 
   # GET /user/:auth_params
   def user_details
-    # TODO: Move to User class as a scope
-    user = User.joins(:token).where(tokens: { auth_token: params[:auth_token] }).first
+    user = User.retrieve(params[:auth_token]).first
 
     if user
       render json: UserRepresenter.new(user)
