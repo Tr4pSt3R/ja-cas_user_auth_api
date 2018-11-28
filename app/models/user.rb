@@ -3,6 +3,8 @@
 #  no-doc
 class User < ApplicationRecord
   has_one :token
+  has_many :user_groups
+  has_many :groups, through: :user_groups
 
   validates :user_name,
             :email_address,

@@ -6,8 +6,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.3.7'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'multi_json'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
+gem 'representable', '~> 3.0.4'
 gem 'rubocop'
 gem 'sqlite3'
 

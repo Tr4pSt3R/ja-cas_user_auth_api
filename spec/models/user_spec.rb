@@ -11,5 +11,7 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { is_expected.to have_one(:token) }
+    it { is_expected.to have_many(:user_groups) }
+    it { is_expected.to have_many(:groups).through(:user_groups) }
   end
 end

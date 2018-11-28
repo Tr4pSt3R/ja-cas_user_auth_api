@@ -26,10 +26,6 @@ RSpec.describe Token, type: :model do
   end
 
   describe 'token refresh' do
-    #let!(:user) { FactoryBot.create(:user, :authenticated) }
-
-    #subject!(:auth_token) { user.auth_token }
-
     context 'when token is expired' do
       before do
         expect_any_instance_of(Token).to receive(
